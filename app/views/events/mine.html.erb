@@ -1,7 +1,8 @@
-<section class="mx-5 my-5 col-3">
-  <h1>List of YOUR events</h1>
+<section class="col-12 my-2">
+  <h1 class="mx-5">List of YOUR events</h1>
   <br/>
-  <%= link_to 'Create a new Event', new_event_path, class: "btn btn-sm btn-primary col-2 shadow" %>
+  <%= link_to 'Create a new Event', new_event_path, class: "btn btn-primary shadow mx-5" %>
+  <br/>
   <br/>
   <table class="table table-striped table-hover table-sm table-responsive">
     <thead>
@@ -19,27 +20,27 @@
       </tr>
     </thead>
     <tbody>
-      <%@my_events.each do |my_event| 
-        admin_or_author = user_signed_in? ? "" : " disabled"
-        # TO DO: Add the "admin role" management.
+      <%@events.each do |my_event| 
+        tmp_bool = user_signed_in? && my_event.promoter_id == current_user.id
+        admin_or_author = tmp_bool ? "" : " disabled"
+        # TO DO: Add the "super admin role" management to enable ALL actions on ALL events
       %>
         <tr>
           <td><%=my_event.id%></td>
           <td><%=my_event.title%></td>
           <td><%=my_event.location%></td>
           <td><%=my_event.start_date%></td>
-          <td><%=my_event.duration%></td>
-          <td><%=my_event.promoter.first_name+" "+my_event.promoter.last_name%>+"("+my_event.promoter_id+")3</td>
+          <td><%=(my_event.duration/60).to_s+" hrs "+(my_event.duration%60).to_s+" mns"%></td>
+          <td><%=my_event.promoter.first_name+" "+my_event.promoter.last_name+" ["+my_event.promoter_id.to_s+"]"%></td>
           <td><%=my_event.description%></td>
-          <td><%=my_event.price%></td>
+          <td><%=my_event.price.to_s+"€"%></td>
           <td><%=my_event.attendees.count%></td>
-          <td><%= link_to 'Details', event_path(gossip.id), method: :get, class: "btn btn-sm btn-info shadow" %></td>
-          <td><%= link_to 'Edit', edit_event_path(gossip.id), class: "btn btn-sm btn-warning shadow#{admin_or_author}" %></td>
-          <td><%= link_to 'Delete', event_path(gossip.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger shadow#{admin_or_author}" %></td>
+          <td><%= link_to 'Details', event_path(my_event.id), method: :get, class: "btn btn-sm btn-info shadow" %></td>
+          <td><%= link_to 'Edit', edit_event_path(my_event.id), class: "btn btn-sm btn-warning shadow#{admin_or_author}" %></td>
+          <td><%= link_to 'Delete', event_path(my_event.id), method: :delete, data: { confirm: 'Are you sure you want to delete this event?' }, class: "btn btn-sm btn-danger shadow#{admin_or_author}" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <%= link_to "Back", events_path, class: "btn btn-secondary shadow mx-5" %>
 </section>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>

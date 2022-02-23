@@ -22,7 +22,9 @@
     <!-- HEADER -->
     <header class="sticky-top">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">EVENT HACK '22</a>
+        <a class="navbar-brand" href="/">
+          <%=image_tag("event_hack_bw.png", height: '70', class: "rounded mx-2")%>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,8 +40,6 @@
                 <li><a class="dropdown-item" href="<%=my_events_path%>">View your event(s) only</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="<%=edit_user_registration_path%>">Edit your profile</a></li>
-                <%else%>
-
                 <%end%>
               </ul>
             </li>
@@ -50,15 +50,21 @@
               <a class="nav-link" href="<%=static_pages_contact_path%>">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%=static_pages_secret_path%>">_</a>
+              <a class="nav-link" href="<%=static_pages_secret_path%>">.</a>
             </li>
           </div>
           <div class="d-flex">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <a class="nav-link btn-sm btn-danger mx-3" href="<%=destroy_user_session_path%>">Log out</a> 
+              <%= link_to "Log out (hlp)", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log off?' }, class:"nav-link btn-sm btn-danger mx-3" %>
             </li>
-            <%else%>
+            <li class="nav-item">
+              <a href="<%=destroy_user_session_path%>" data-method="DELETE" class="nav-link btn-sm btn-warning mx-3" %>Log out (std)</a>
+            </li>
+            <li class="nav-item">
+              <i class="bi bi-person-circle text-white h2 mx-2"></i>
+            </li>
+            <% else %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Connection</a>
               <ul class="dropdown-menu">
@@ -66,7 +72,7 @@
                 <li><a class="dropdown-item btn btn-primary" href="<%=new_user_registration_path%>">Sign Up</a></li>
               </ul>
             </li>
-            <%end%>
+            <% end %>
           </div>
           </ul>
         </div>
@@ -80,10 +86,7 @@
         <div class="container-fluid">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item dropup">
-            <% 
-              admin_disabled = (user_signed_in? ? "" : " disabled")
-              puts "*** Admin switch: "+admin_disabled+" ***"
-            %>
+            <% admin_disabled = (user_signed_in? ? "" : " disabled") %>
               <a class="nav-link dropdown-toggle<%=admin_disabled%>" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Admin</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="<%=edit_user_registration_path%>">Manage Users</a></li>

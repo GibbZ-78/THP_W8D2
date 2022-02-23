@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  # before_action :set_event, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_event, only: [ :show, :edit, :update, :destroy ]
   #before_action :authenticate_user!
 
   # GET /events or /events.json
@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    set_event
   end
 
   # GET /events/new
@@ -18,6 +19,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    set_event
   end
 
   # POST /events or /events.json
@@ -37,6 +39,7 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
+    set_event
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to event_url(@event), notice: "Event was successfully updated." }
@@ -50,6 +53,7 @@ class EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    set_event
     @event.destroy
 
     respond_to do |format|
@@ -60,7 +64,8 @@ class EventsController < ApplicationController
 
   # GET /events/my_events
   def mine
-    @my_events = Event.where(promoter_id:current_user.id)
+    @events = Event.where(promoter_id:current_user.id)
+    puts "*** Going through the 'mine' method"
   end
 
   private

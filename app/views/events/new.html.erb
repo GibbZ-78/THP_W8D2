@@ -1,5 +1,7 @@
-<h1>New Event</h1>
-
-<%= render 'form', event: @event %>
-
-<%= link_to 'Back', events_path %>
+<section class="mx-5 my-2 col-6">
+  <h1>Create your own event</h1>
+  <br/>
+  <%= render 'form', event: @event %>
+  <br/>
+  <%= link_to 'Back', events_path, class: "btn btn-secondary shadow" %>
+</section>
