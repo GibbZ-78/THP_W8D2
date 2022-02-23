@@ -1,12 +1,103 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EventHack20</title>
+    <title>Event Hack 2.0 - Crack event organization thanks to the web!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- JBV - Commented line below (+ adding HTML comment tags + suppressing Rails brackets) so turbolinks does not run -->
+    <!--stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' -->
+    <!--javascript_include_tag 'application', 'data-turbolinks-track': 'reload' -->
+    <!-- Bootstrap CSS 5+ (see Javascript link at the very end of the BODY -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   </head>
+  <body class="d-flex flex-column min-vh-100">
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <!-- HEADER -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">EVENT HACK '22</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto d-flex flex-grow-1 justify-content-between">
+          <div class="d-flex">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Actions</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="<%=events_path%>">View all events</a></li>
+                <li><a class="dropdown-item" href="<%=new_event_path%>">Create YOUR OWN event</a></li>                
+                <% if user_signed_in? %>
+                <li><a class="dropdown-item" href="<%=my_events_path%>">View your event(s) only</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="<%=edit_user_registration_path%>">Edit your profile</a></li>
+                <%else%>
 
-  <body>
+                <%end%>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%=static_pages_team_path%>">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%=static_pages_contact_path%>">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%=static_pages_secret_path%>">_</a>
+            </li>
+          </div>
+          <div class="d-flex">
+            <% if user_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link btn-sm btn-danger mx-3" href="<%=destroy_user_session_path%>">Log out</a> 
+            </li>
+            <%else%>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Connection</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item btn btn-success" href="<%=new_user_session_path%>">Log In</a></li>
+                <li><a class="dropdown-item btn btn-primary" href="<%=new_user_registration_path%>">Sign Up</a></li>
+              </ul>
+            </li>
+            <%end%>
+          </div>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- DYNAMIC CONTENT -->
     <%= yield %>
+    <!-- FOOTER -->
+    <footer class="mt-auto">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropup">
+            <% 
+              admin_disabled = (user_signed_in? ? "" : " disabled")
+              puts "*** Admin switch: "+admin_disabled+" ***"
+            %>
+              <a class="nav-link dropdown-toggle<%=admin_disabled%>" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Admin</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="<%=edit_user_registration_path%>">Manage Users</a></li>
+                <li><a class="dropdown-item" href="<%=events_path%>">Manage Events</a></li>
+                <li><a class="dropdown-item" href="<%=attendances_path%>">Manage Attendances</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <span class="nav-link">&copy; 2022 <a href="https://github.com/GibbZ-78" target="_blank">GibbZ-78</a> for THP 'Fullstack' (Winter 2022)</span>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>

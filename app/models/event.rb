@@ -12,12 +12,12 @@ class Event < ApplicationRecord
   # Start_date
   # Mandatory + Forbidden to create or update a past event
   #   QUESTION: is it useful to add "on: create / dupdate" here ? Is it possible to have both in 1 line only?
-  #   NOTICE: Line below does not work on the v5.2.6 of Rails... Replaced by a call to a dedicated method
+  #   NOTICE: Line below does not work on the v5.2.6 of Rails... Replaced by an ol'school call to a dedicated method
   #           validates :start_date, presence: true, comparison: { greater_than_or_equal_to: Date.today} 
   validates :start_date, presence: true, if: :start_date_cannot_be_in_the_past 
 
   # Duration
-  # Mandatory + Must be a multiple of 5 + Must be strictmy greater than 0
+  # Mandatory + Must be a multiple of 5 + Must be strictly greater than 0
   validates :duration, presence: true, 
                        if: :div_by_5_and_pos?
 
@@ -46,14 +46,15 @@ class Event < ApplicationRecord
   private
 
   def start_date_cannot_be_in_the_past
-    print "  > Testing duration is multiple of 5 and greater than 0"
+    print "  > Testing 'start_date' is in the future"
     self.start_date >= Date.today
     puts "...OK!"
   end
 
   def div_by_5_and_pos?
-    puts "  > Testing duration is multiple of 5 and greater than 0"
+    print "  > Testing duration is a multiple of 5 and greater than 0"
     ((self.duration%5 == 0) && (self.duration > 0))
+    puts "...OK!"
   end
 
 end

@@ -20,7 +20,7 @@ class Attendance < ApplicationRecord
 
   # For each new participant to a given event, sending an in fo mail to the event promoter (owner / admin)
   def promoter_send
-    puts "[DEBUG] Promoter: #{self.event.promoter.first_name} #{self.promoter.last_name} - Attendee: #{self.attendee.first_name} #{self.attendee.last_name} - Event: #{self.event.title}"
+    puts "[DEBUG] Promoter: #{self.event.promoter.first_name} #{self.event.promoter.last_name} - Attendee: #{self.attendee.first_name} #{self.attendee.last_name} - Event: #{self.event.title}"
     AttendanceMailer.new_registration_email(self.event.promoter, self.attendee, self.event).deliver_now
   end
 

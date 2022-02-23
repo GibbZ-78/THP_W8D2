@@ -17,7 +17,7 @@ puts "  > Creating & filling users"
 User.create(first_name: "Jean-Baptiste",
             last_name: "VIDAL",
             email: "gibbz01@yopmail.com",
-            encrypted_password: "THP_2022",
+            password: "THP_2022",
             age: "43",
             description: "El padre")
 puts "    - User nr.1 created"
@@ -25,7 +25,7 @@ puts "    - User nr.1 created"
 User.create(first_name: "Valérie-Anne",
             last_name: "DELAIDDE",
             email: "gibbz02@yopmail.com",
-            encrypted_password: "THP_2022",
+            password: "THP_2022",
             age: "44",
             description: "La madre")
 puts "    - User nr.2 created"
@@ -33,7 +33,7 @@ puts "    - User nr.2 created"
 User.create(first_name: "Lucie",
             last_name: "VIDAL-DELAIDDE",
             email: "gibbz03@yopmail.com",
-            encrypted_password: "THP_2022",
+            password: "THP_2022",
             age: "7",
             description: "La hija")
 puts "    - User nr.3 created"
@@ -41,7 +41,7 @@ puts "    - User nr.3 created"
 User.create(first_name: "Panzer",
             last_name: "BMW",
             email: "gibbz04@yopmail.com",
-            encrypted_password: "THP_2022",
+            password: "THP_2022",
             age: "5",
             description: "El coche de nuestra familia")
 puts "    - User nr.4 created"
@@ -129,4 +129,5 @@ Attendance.create(event_id: Event.all[3].id,
 puts "    - Attendance 8 OK"
 puts "  > #{Attendance.count} links between users and events created"
 
+puts "*** END OF SEED (believe it or not...) ***"
 # End of SEED

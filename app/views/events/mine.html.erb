@@ -1,0 +1,45 @@
+<section class="mx-5 my-5 col-3">
+  <h1>List of YOUR events</h1>
+  <br/>
+  <%= link_to 'Create a new Event', new_event_path, class: "btn btn-sm btn-primary col-2 shadow" %>
+  <br/>
+  <table class="table table-striped table-hover table-sm table-responsive">
+    <thead>
+      <tr>
+        <th><i class="bi bi-list-ol"></i></th>
+        <th>Title</th>
+        <th>Location</th>
+        <th><i class="bi bi-calendar3"></i></th>
+        <th><i class="bi bi-alarm"></i></th>
+        <th>Promoter</th>
+        <th>Description</th>
+        <th><i class="bi bi-tag"></i></th>
+        <th><i class="bi bi-people-fill"></i></th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@my_events.each do |my_event| 
+        admin_or_author = user_signed_in? ? "" : " disabled"
+        # TO DO: Add the "admin role" management.
+      %>
+        <tr>
+          <td><%=my_event.id%></td>
+          <td><%=my_event.title%></td>
+          <td><%=my_event.location%></td>
+          <td><%=my_event.start_date%></td>
+          <td><%=my_event.duration%></td>
+          <td><%=my_event.promoter.first_name+" "+my_event.promoter.last_name%>+"("+my_event.promoter_id+")3</td>
+          <td><%=my_event.description%></td>
+          <td><%=my_event.price%></td>
+          <td><%=my_event.attendees.count%></td>
+          <td><%= link_to 'Details', event_path(gossip.id), method: :get, class: "btn btn-sm btn-info shadow" %></td>
+          <td><%= link_to 'Edit', edit_event_path(gossip.id), class: "btn btn-sm btn-warning shadow#{admin_or_author}" %></td>
+          <td><%= link_to 'Delete', event_path(gossip.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger shadow#{admin_or_author}" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

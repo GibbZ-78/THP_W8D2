@@ -62,7 +62,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # JBV - Adding useful gems for ALL environments
 gem 'faker'           # Enables generating fake content sot nively seed the DB
 gem 'dotenv-rails'    # Manages the ".env" file (added to the .gitignore)
-#gem 'devise'          # Includes user sessions & registration management features (when handled gently ;-)
+gem 'devise'          # Includes user sessions & registration management features (when handled gently ;-)
 
 # JBV - Adding useful gems for development environment only
 group :development do

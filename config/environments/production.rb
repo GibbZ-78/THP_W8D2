@@ -104,7 +104,7 @@ Rails.application.configure do
   #       "false" would prevent any sending
   config.action_mailer.perform_deliveries = true
 
-  # JBV - Adding default URL to have "devise" gem work properly in development environment...
+  # JBV - Adding default URL to have "devise" gem work properly in production environment...
   #       TO DO: see what this option does exactly and... If it actually makes "devise" send mails
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   
