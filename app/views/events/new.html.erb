@@ -1,7 +1,12 @@
-<section class="mx-5 my-2 col-6">
-  <h1>Create your own event</h1>
-  <br/>
-  <%= render 'form', event: @event %>
-  <br/>
-  <%= link_to 'Back', events_path, class: "btn btn-secondary shadow" %>
-</section>
+<div class="d-flex flex-row">
+  <section class="col-1">
+  </section>
+  <section class="my-2 col-6">
+    <h1>Create your own event</h1>
+    <br/>
+    <%= render 'form', event: @event %>
+  </section>
+  <section class="col-5">
+    <%=image_tag("secret.jpg", class: "col-12")%>
+  </section>
+</div>

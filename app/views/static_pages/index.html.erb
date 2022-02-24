@@ -1,2 +1,13 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+<div class="d-flex flex-row">
+  <section class="col-12">
+    <div class="d-flex flex-column col-12 position-relative top-0 start-0" style="z-index:666;">
+      <div class="container col-4 mt-5">
+        <h1 class="display-2 text-white">EventHack 2.0</h1>
+        <p class="lead text-white font-italic">Create and register for any event. Painlessly.</p>
+      </div>
+    </div>
+    <div class="col-12 position-absolute top-0 start-0">
+      <%=image_tag("concert_landscape.jpg", class: "col-12")%>
+    </div>
+  </section>
+</div>
