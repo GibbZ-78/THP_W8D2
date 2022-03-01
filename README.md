@@ -38,7 +38,17 @@ To be able to download and use this project under your own unix-like OS, simply 
    - gibbz02@yopmail.com / THP_2022 [User + Promoter]
    - gibbz03@yopmail.com / THP_2022 [User + Promoter]
 
-### :four: Credits
+### :four: Possible improvements
+As you'll quickly see, there's still a lot to do, such as:
+- Add the event registration feature:
+  - so registered users can effectively access and attend an event
+  - introducing a billing and payment process (via Stripe, for example)
+- Enrich the platform with some basic additional user profile management features (beyond "Devise" standards):
+  - from the user PoV itself (_e.g._ updating one's name...)
+  - but also from the Admin standpoint (_e.g._ info updates, stats & KPIs...)
+- Complete the platform with some expected community offering: likes, comments, chat rooms, etc.
+
+### :five: Credits
 &copy; 2022 - Jean-Baptiste VIDAL ([Github repo](https://github.com/GibbZ-78))
 
 Enjoy, _wanderer_ :wink: !  
