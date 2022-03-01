@@ -16,10 +16,22 @@ Here below are some of the stuff you may want to cover while browsing this Ruby 
 
 Enjoy, _wanderer_ :wink: !
 
-## Credits
-&copy; 2022 - Jean-Baptiste VIDAL ([Github repo](https://github.com/GibbZ-78))
-
+## Data Models
 
 ![EventHack data model 1/2 (JPEG)](db/MCD.png?raw=true "EventHack conceptual data model")
 
 ![EventHack data model 2/2 (JPEG)](db/MLD.png?raw=true "EventHack logical data model")
+
+## How to
+
+To be able to download and use this project under your own unix-like OS, simply follow the white rabbit :rabbit2: by :
+1. Cloning the current repository into an empty local directory
+2. From this local directory, loading all required GEMS and renewing the _Gemfile.lock_ by entering ```bundle install```
+3. Generating both DEV and TEST databases, typing ```rails db:create``` _(you need to have PostgreSQL installed and running first, btw :wink:)_
+4. Creating all needed tables, via a quick ```rails db:migrate```, then feeding them thanks to a smooth ```rails db:seed```
+5. Launching the packaged Puma web server on default port #3000 (if not already the case, of course), entering ```rails s(erver)```
+6. Opening your favorite web browser and typing ```localhost:3000``` in the search / URL bar
+
+
+## Credits
+&copy; 2022 - Jean-Baptiste VIDAL ([Github repo](https://github.com/GibbZ-78))

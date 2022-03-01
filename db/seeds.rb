@@ -19,7 +19,8 @@ User.create(first_name: "Jean-Baptiste",
             email: "gibbz01@yopmail.com",
             password: "THP_2022",
             age: "43",
-            description: "El padre")
+            description: "El padre",
+            is_admin: true)
 puts "    - User nr.1 created"
 
 User.create(first_name: "Valérie-Anne",

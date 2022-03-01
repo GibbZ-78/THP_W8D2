@@ -1,3 +1,10 @@
+<%
+  # Theoretically, no need to test "user_signed_in" as this is done in the father HTML/Rails file
+  is_event_promoter = !@event.promoter_id.nil? && @event.promoter_id == current_user.id
+  tmp_promoter_string = @event.promoter_id.nil? ? "You (#{current_user.first_name} #{current_user.last_name})" : "#{@event.promoter.first_name} #{@event.promoter.last_name}"
+  tmp_promoter_number = @event.promoter_id.nil? ? "#{current_user.id}" : "#{@event.promoter_id}"
+%>
+
 <%= form_with(model: event, local: true, class:"col-6 m-3") do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -11,33 +18,43 @@
   <% end %>
   <div class="form-group">
     <%= form.label :title, "Title" %>
-    <%= form.text_field :title, class: "form-control" %>
+    <%= form.text_field :title, class: "form-control", readonly: !is_event_promoter %>
   </div>
   <div class="form-group">
     <%= form.label :description, "Description" %>
-    <%= form.text_area :description, class: "form-control", size: "50x3" %>
+    <%= form.text_area :description, class: "form-control", size: "50x3", readonly: !is_event_promoter %>
   </div>
   <div class="form-group">
     <%= form.label :start_date, "Start date & time" %>
-    <%= form.datetime_local_field :start_date, class: "form-control" %>
+    <%= form.datetime_local_field :start_date, class: "form-control", readonly: !is_event_promoter %>
   </div>
   <div class="form-group">
-    <%= form.label :promoter, "Promoter" %>
-    <%= form.text_field :promoter, class: "form-control", value: "You (#{current_user.first_name+' '+current_user.last_name})", readonly: true %>
-    <%= form.hidden_field :promoter_id, value: "#{current_user.id}" %>
+    <%= form.label :duration, "Duration (in minutes)" %>
+    <%= form.text_field :duration, class: "form-control", readonly: !is_event_promoter %>
+  </div>
+  <div class="form-group">
+    <%= form.label :promoter_string, "Promoter / Organizer" %>
+    <%= form.text_field :promoter_string, class: "form-control", value: tmp_promoter_string, readonly: true %>
+    <%= form.hidden_field :promoter_id, value: tmp_promoter_number %>
   </div>
   <div class="form-group">
     <%= form.label :location, "Location" %>
-    <%= form.text_field :location, class: "form-control" %>
+    <%= form.text_field :location, class: "form-control", readonly: !is_event_promoter %>
   </div>
   <div class="form-group">
     <%= form.label :price, "Price (€)" %>
-    <%= form.text_field :price, class: "form-control" %>
+    <%= form.text_field :price, class: "form-control", readonly: !is_event_promoter %>
   </div>
   <br />
   <div class="actions">
-    <input type="submit" class="btn btn-primary" value="proceed" />
-    <input type="reset" class="btn btn-warning" value="reset"/>
-    <%= link_to 'Cancel & Back', events_path, class: "btn btn-secondary shadow" %>
+    <% if is_event_promoter %>
+    <input type="submit" class="btn btn-primary" value="Proceed"/>
+    <input type="reset" class="btn btn-warning" value="Reset"/>
+    <% end%>
+    <% if @event.promoter_id.nil?%>
+      <%=link_to "Cancel & Back", events_path, class: "btn btn-secondary text-white"%>
+    <%elsif%>
+      <%=link_to "Back", events_path, class: "btn btn-secondary text-white"%>
+    <%end%>
   </div>
 <% end %>

@@ -1,4 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<div class="d-flex flex-row">
+  <section class="col-1">
+  </section>
+  <section class="my-2 col-6">
+    <h1>Check event details</h1>
+    <% if user_signed_in? %>
+    <%= render 'form', event: @event %>
+    <% else %>
+    <p>You are not logged in, hence cannot see any detailed information regarding our trendy list.</p>
+    <p>Please:
+      <ol>
+        <li>Go back to the home page, clicking the dedicated button below</li>
+        <li>Sign-up (if not subscribed to EventHack already)</li>
+        <li>Then log in to your account and enjoy!</li>
+      </ol>
+    </p>
+    <br/>
+    <p>
+      <%= link_to 'Back to home page', events_path, class: "btn btn-primary text-white" %>
+    </p>
+    <% end %>
+  </section>
+  <section class="col-5">
+    <%=image_tag("event02.jpg", class: "col-12")%>
+  </section>
+</div>

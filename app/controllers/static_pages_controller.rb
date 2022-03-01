@@ -10,4 +10,7 @@ class StaticPagesController < ApplicationController
 
   def secret
   end
+
+  def mycss
+  end
 end
