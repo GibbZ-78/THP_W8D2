@@ -10,16 +10,22 @@
     <%=javascript_include_tag 'application'%>
     <!-- Adding a Ruby conditional CSS framework connection -->
     <!-- DEFAULT CSS is Bootstrap 5+ (CSS file only. See Javascript link at the very end of the BODY) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Adding a customized theme by overriding Bootstrap (not really optimized...) -->
     <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
     <% if params[:mystyle] %>
       <% case params[:mystyle] %>
-      <% when "bootstrap" %>
-        <!-- Re-overriding with Bootstrap (not at all optimized!) -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
       <% when "gibbz" %>
         <%= stylesheet_link_tag "gibbz" %>
+      <% when "bootstrap" %>
+        <!-- Re-overriding with Bootstrap (not at all optimized!) -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <% when "morph" %>
+        <!-- Re-overriding with Bootstrap (not at all optimized!) -->
+        <link rel="stylesheet" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+      <% when "sketchy" %>
+        <!-- Re-overriding with Bootstrap (not at all optimized!) -->
+        <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.min.css">
       <% end %>
     <% end %>
     <!-- Bootstrap Icons | Added in all cases -->

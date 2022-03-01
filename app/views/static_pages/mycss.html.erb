@@ -2,18 +2,20 @@
     <br/>
     <div class="mx-auto my-2">
       <form action="<%=static_pages_mycss_path%>" method="GET">
-        <select class="form-select col-3" name="mystyle" onchange="this.form.submit()">
+        <select class="form-select" name="mystyle" onchange="this.form.submit()">
           <option selected>Choose your style below!</option>
-          <option value="bootstrap">Bootstrap</option>
-          <option value="vapor">Bootswatch Vapor</option>
           <option value="gibbz">GibbZ</option>
+          <option value="bootstrap">Bootstrap</option>
+          <option value="vapor">Vapor (by Bootswatch)</option>
+          <option value="morph">Morph (by Bootswatch)</option>
+          <option value="sketchy">Sketchy (by Bootswatch)</option>
         </select>
       </form>
     </div>
     <br/>
     </section>
     <section>
-      <h1 class="text-lighter"> - TITLES - </h1>
+      <h1 class="text-lighter"> [ TITLES ] </h1>
       <div class="mx-5">
         <h1>This is a #1 heading</h1>
         <h2>This is a #2 heading</h2>
@@ -24,7 +26,7 @@
       </div>
     </section>
     <section>
-      <h1 class="text-lighter"> - TYPOGRAPHY - </h1>
+      <h1 class="text-lighter"> [ TYPOGRAPHY ] </h1>
       <div class="mx-5">
         <p class="font-weight-normal text-primary">This is normal text</p>
         <p class="font-weight-bold text-primary">This is bold text</p>
@@ -34,7 +36,7 @@
       </div>
     </section>
     <section>
-      <h1 class="text-lighter"> - COLORS - </h1>
+      <h1 class="text-lighter"> [ COLORS ] </h1>
       <div class="mx-5">
         <p class="text-primary">This is the primary color text</p>
         <p class="text-secondary">This is secondary color text</p>
@@ -49,7 +51,7 @@
       </div>
     </section>
     <section>
-      <h1 class="text-lighter"> - BUTTONS & LINKS - </h1>
+      <h1 class="text-lighter"> [ BUTTONS & LINKS ] </h1>
       <div class="mx-5">
         <p>
           <a class="btn btn-primary">This is a standard button</a>
@@ -58,15 +60,34 @@
           <a class="btn btn-danger">This is an alert button</a>
           <a class="btn btn-warning">This is a warning button</a>
           <a class="btn btn-info">This is an info button</a>
+        </p>
+        <br/>
         <p>
           <a class="btn btn-darker">This is an even darker-color button</a>
           <a class="btn btn-dark">This is a dark-color button</a>
           <a class="btn btn-light">This is a light-color button</a>
           <a class="btn btn-lighter">This is an even lighter-color button</a>
         </p>
+        <br/>
         <p>
-          <a class="lnk-standard">This is a standard link</a>
-          <a class="lnk-visited">This is link you visited already</a>
+          <a class="link link-primary">This is a standard link</a>
+          <a class="link link-secondary">This is a secondary link</a>
         </p>
+      </div>
+    </section>
+    <br/>
+    <section>
+      <h1 class="text-lighter"> [ FORMS ] </h1>
+      <div class="mx-5">
+        <form>
+          <div class="form-group">
+            <label class="form-label" for="input1">Mon champ 1</label>
+            <input class="form-control" type="text" id="input1" placeholder="Enter any information you'd like"/>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check1">
+            <label class="form-check-label" for="check1">Ma case à cocher</label>
+          </div>
+        </form>
       </div>
     </section>
