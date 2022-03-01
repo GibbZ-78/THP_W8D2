@@ -1,5 +1,5 @@
 <section class="col-12 my-2">
-  <h1 class="mx-5">List of ALL events</h1>
+  <h1 class="mx-5">List of all our trendy events</h1>
   <br/>
   <%= link_to 'Create a new Event', new_event_path, class: "btn btn-primary mx-5 text-white rounded" %>
   <br/>
@@ -29,10 +29,10 @@
           <td><%=my_event.id%></td>
           <td><%=my_event.title%></td>
           <td><%=my_event.location%></td>
-          <td><%=my_event.start_date%></td>
-          <td><%=(my_event.duration/60).to_s+" hrs "+(my_event.duration%60).to_s+" mns"%></td>
+          <td><%=my_event.start_date.strftime("%Y.%m.%d at %I:%M%p")%></td>
+          <td><%=(my_event.duration/60).to_s+" hrs "+(my_event.duration%60).to_s+"'"%></td>
           <td><%=my_event.promoter.first_name+" "+my_event.promoter.last_name+" ["+my_event.promoter_id.to_s+"]"%></td>
-          <td><%=my_event.description%></td>
+          <td><%=my_event.description[0..40]+"(...)"%></td>
           <td><%=my_event.price.to_s+"€"%></td>
           <td><%=my_event.attendees.count%></td>
           <td><%= link_to 'Details', event_path(my_event.id), method: :get, class: "btn btn-sm btn-info rounded" %></td>
