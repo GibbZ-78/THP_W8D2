@@ -14,7 +14,9 @@ Here below are some of the stuff you may want to cover while browsing this Ruby 
 
 * Views and layouts - See _/app/views/_ sub-directories. In particular, _/app/views/layouts/_ gathers the header / footer templating and _/devise/_ stores all 'devise' gem related pages and helpers
 
-Enjoy, _wanderer_ :wink: !
+* Regarding today's (March 1st, 2022) expected deliverables, you should be able to:
+  * browse the EventHack 2.0 site and see how a [dedicated BootSwatch theme named VAPOR](https://bootswatch.com/vapor/) was applied to the entire front pages
+  * navigate the "UI Kit Demo" menu (above in the navigation bar) to switch between VAPOR, the standard BOOTSTRAP library and my ugly handmade UI Kit. All the latters deployed on examplary atoms and molecules (headings, texts, buttons...)
 
 ## Data Models
 
@@ -32,6 +34,7 @@ To be able to download and use this project under your own unix-like OS, simply 
 5. Launching the packaged Puma web server on default port #3000 (if not already the case, of course), entering ```rails s(erver)```
 6. Opening your favorite web browser and typing ```localhost:3000``` in the search / URL bar
 
-
 ## Credits
 &copy; 2022 - Jean-Baptiste VIDAL ([Github repo](https://github.com/GibbZ-78))
+
+Enjoy, _wanderer_ :wink: !  

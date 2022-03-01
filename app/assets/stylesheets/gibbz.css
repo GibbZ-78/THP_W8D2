@@ -1,0 +1,178 @@
+/****************************/
+/*                          */
+/*       GIBBZTRAP 1.0      */
+/*                          */
+/*  GibbZ personalized CSS  */
+/*                          */
+/*      (c) 2022 GibbZ      */
+/*                          */
+/****************************/
+
+/****************************/
+/*  IMPORTS                 */
+/****************************/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Roboto+Condensed:wght@300&display=swap');
+
+* {
+
+/****************************/
+/*  COLOR VARS              */
+/****************************/
+
+--danger: #b63a17ff;
+--warning: #cb8a19ff;
+--metallic-sunburst: #a77a37ff;
+--french-bistre: #836a54ff;
+--secondary: #5f5a71ff;
+--primary: #3b498eff;
+--info: #486d6cff;
+--success: #559149ff;
+--lighter: #ffffffff;
+--light: #bbbbbbff;
+--dark: #666666ff;
+--darker: #00000000; 
+
+/****************************/
+/*  FONTS & TYPOGRAPHIES    */
+/****************************/
+
+font-family: 'Roboto Condensed', sans-serif;
+font-size: 12px;
+font-weight: normal;
+
+}
+
+.font-weight-normal {
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.text-under {
+  text-decoration:underline;
+}
+
+.text-striked {
+  text-decoration:line-through;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+
+
+/****************************/
+/*  HEADINGS                */
+/****************************/
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bungee', cursive;
+  font-weight: bolder;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+h2 {
+  font-size: 38px;
+}
+
+h3 {
+  font-size: 34px;
+}
+
+h4 {
+  font-size: 26px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+/****************************/
+/*  BUTTONS & LINKS         */
+/****************************/
+
+.btn {
+  margin: 2px 2px;
+  padding: 10px 10px;
+  opacity: 100%;
+  border-radius: 3px;
+  border-style: 0px;
+  box-shadow: none;
+}
+
+.btn:hover {
+  opacity: 90%;
+  border-style: 1px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  opacity: 100%;
+  border-style: 1px;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--lighter);
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--lighter);
+  box-shadow: none;
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: var(--lighter);
+  box-shadow: none;
+}
+
+.btn-success {
+  background: var(--success);
+  color: var(--lighter);
+  box-shadow: none;
+}
+
+.btn-info {
+  background: var(--info);
+  color: var(--lighter);
+  box-shadow: none;
+}
+
+.btn-warning {
+  background: var(--warning);
+  color: var(--lighter);
+  box-shadow: none;
+}
